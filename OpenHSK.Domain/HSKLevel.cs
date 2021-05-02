@@ -58,12 +58,6 @@ namespace OpenHSK.Domain
         public string Name { get; }
 
         /// <summary>
-        /// return the string representation of the HSK level
-        /// </summary>
-        /// <returns>the string representation of the HSK level</returns>
-        public override string ToString() => Name;
-        
-        /// <summary>
         /// Needed to allow structure comparison for value object
         /// </summary>
         /// <returns>return the equality components</returns>

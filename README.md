@@ -1,8 +1,6 @@
 # Open Hsk
 
-[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-orange.svg)](https://sonarcloud.io/dashboard?id=ChristopheDEBOVE_OpenHSK)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ChristopheDEBOVE_OpenHSK&metric=alert_status)](https://sonarcloud.io/dashboard?id=ChristopheDEBOVE_OpenHSK)
-
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=ChristopheDEBOVE_OpenHSK)](https://sonarcloud.io/dashboard?id=ChristopheDEBOVE_OpenHSK)
 
 **Objectif du projet :**
  

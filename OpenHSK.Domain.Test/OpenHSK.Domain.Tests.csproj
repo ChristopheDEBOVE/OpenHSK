@@ -21,10 +21,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Features\Enrollment.cs">
+    <Compile Update="Features\EnrollmentTest.cs">
       <ExcludeFromSourceAnalysis>True</ExcludeFromSourceAnalysis>
       <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
     </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="TestResults\" />
   </ItemGroup>
 
 </Project>

@@ -497,4 +497,5 @@ FodyWeavers.xsd
 *.slconfig
 *.ruleset
 /.sonarqube
-/sonarscan.bat
+*.ncrunchproject
+/OpenHSK.v3.ncrunchsolution

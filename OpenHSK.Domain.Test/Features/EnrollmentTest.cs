@@ -1,10 +1,12 @@
 using FluentAssertions;
 using System;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace OpenHSK.Domain
 {
-    public class Enrollment
+
+    public class EnrollmentTest
     {
         readonly Student _sut = new Student();
 
@@ -17,7 +19,7 @@ namespace OpenHSK.Domain
 
         [Fact]
         public void A_Student_Cannot_Enroll_Twice_For_The_Same_HSK_Level()
-        { 
+        {
             _sut.Enroll(HskLevel.First);
             Action secondEnrollment = () => _sut.Enroll(HskLevel.First);
 
@@ -28,7 +30,6 @@ namespace OpenHSK.Domain
         public void A_Student_Can_Enroll_For_Six_Differents_Levels_In_The_Same_Time()
         {
             Student student = new Student();
-
             student.Enroll(HskLevel.First);
             student.Enroll(HskLevel.Second);
             student.Enroll(HskLevel.Third);
@@ -36,10 +37,10 @@ namespace OpenHSK.Domain
             student.Enroll(HskLevel.Fifth);
             student.Enroll(HskLevel.Sixth);
 
-            student.Levels.Should().Contain(new []{ 
+            student.Levels.Should().Contain(new[]{
                 HskLevel.First, HskLevel.Second,
-                HskLevel.Third, HskLevel.Fourth, 
-                HskLevel.Fifth, HskLevel.Sixth});    
+                HskLevel.Third, HskLevel.Fourth,
+                HskLevel.Fifth, HskLevel.Sixth});
         }
     }  
 }

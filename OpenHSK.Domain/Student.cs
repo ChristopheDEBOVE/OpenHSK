@@ -7,6 +7,7 @@ namespace OpenHSK.Domain
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
 
     /// <summary>
     /// Student Class
@@ -35,11 +36,11 @@ namespace OpenHSK.Domain
         /// <param name="level">the HSK level</param>
         public void Enroll(HskLevel level)
         {
-            if (this.levels.Contains(level))
+            if (this.levels.Any(a => a == level))
             {
                 throw new InvalidOperationException();
             }
-                
+            
             this.levels.Add(level);
         }
     }
