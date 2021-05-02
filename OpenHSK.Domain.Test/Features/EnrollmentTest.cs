@@ -9,14 +9,16 @@ namespace OpenHSK.Domain
     {
         readonly Student _sut = new Student();
 
-        [Fact]
+        [Fact(DisplayName ="A student should be able to enroll for an hsk level")]
+        [Trait("Feature","Enrollment")]
         public void AStudentShouldBeAbleToEnrollForAnHSKLevel()
         {
             _sut.Enroll(HskLevel.First);
             _sut.Levels.Should().Contain(HskLevel.First);
         }
 
-        [Fact]
+        [Fact(DisplayName = "A student cannot enroll twice for the same hsk level")]
+        [Trait("Feature", "Enrollment")]
         public void AStudentCannotEnrollTwiceForTheSameHSKLevel()
         {
             _sut.Enroll(HskLevel.First);
@@ -25,22 +27,21 @@ namespace OpenHSK.Domain
             secondEnrollment.Should().Throw<InvalidOperationException>();
         }
 
-        [Fact]
+        [Fact(DisplayName = "A student can enroll for six differents levels in the same time")]
+        [Trait("Feature", "Enrollment")]
         public void AStudentCanEnrollForSixDifferentsLevelsInTheSameTime()
-        {
-            Student student = new Student();
-            student.Enroll(HskLevel.First);
-            student.Enroll(HskLevel.Second);
-            student.Enroll(HskLevel.Third);
-            student.Enroll(HskLevel.Fourth);
-            student.Enroll(HskLevel.Fifth);
-            student.Enroll(HskLevel.Sixth);
+        {            
+            _sut.Enroll(HskLevel.First);
+            _sut.Enroll(HskLevel.Second);
+            _sut.Enroll(HskLevel.Third);
+            _sut.Enroll(HskLevel.Fourth);
+            _sut.Enroll(HskLevel.Fifth);
+            _sut.Enroll(HskLevel.Sixth);
 
-            student.Levels.Should().Contain(new[]{
+            _sut.Levels.Should().Contain(new[]{
                 HskLevel.First, HskLevel.Second,
                 HskLevel.Third, HskLevel.Fourth,
                 HskLevel.Fifth, HskLevel.Sixth});
-
         }
     }  
 }
