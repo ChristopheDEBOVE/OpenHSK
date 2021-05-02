@@ -16,12 +16,12 @@ namespace OpenHSK.Domain
         /// <summary>
         /// keep tracked the HSK levels of the student
         /// </summary>
-        private readonly List<HSKLevel> levels = new List<HSKLevel>();
+        private readonly List<HskLevel> levels = new List<HskLevel>();
 
         /// <summary>
         /// Gets Levels
         /// </summary>
-        public IReadOnlyList<HSKLevel> Levels
+        public IReadOnlyList<HskLevel> Levels
         {
             get
             {
@@ -33,7 +33,7 @@ namespace OpenHSK.Domain
         /// Enroll the student to an HSK level
         /// </summary>
         /// <param name="level">the HSK level</param>
-        public void Enroll(HSKLevel level)
+        public void Enroll(HskLevel level)
         {
             if (this.levels.Contains(level))
             {

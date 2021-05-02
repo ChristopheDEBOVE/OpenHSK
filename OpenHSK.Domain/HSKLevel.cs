@@ -1,7 +1,7 @@
-﻿// <copyright file="HSKLevel.cs" company="MyCompany.com">
-//     MyCompany.com. All rights reserved.
+﻿// <copyright file="HSKLevel.cs" company="openhsk.com">
+//     OpenHSK
 // </copyright>
-// <author>Me</author>
+// <author>Christophe DEBOVE</author>
 
 namespace OpenHSK.Domain
 {
@@ -11,13 +11,13 @@ namespace OpenHSK.Domain
     /// <summary>
     /// The HSKLevel
     /// </summary>
-    public class HSKLevel : ValueObject
+    public class HskLevel : ValueObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="HSKLevel" /> class.
+        /// Initializes a new instance of the <see cref="HskLevel" /> class.
         /// </summary>
         /// <param name="name">the name of the HSK level</param>
-        private HSKLevel(string name)
+        private HskLevel(string name)
         {
             this.Name = name;
         }
@@ -25,32 +25,32 @@ namespace OpenHSK.Domain
         /// <summary>
         /// Gets the First level of HSK
         /// </summary>
-        public static HSKLevel First { get; } = new HSKLevel("First");
+        public static HskLevel First { get; } = new HskLevel("First");
 
         /// <summary>
         /// Gets the Second level of HSK
         /// </summary>
-        public static HSKLevel Second { get; } = new HSKLevel("Second");
+        public static HskLevel Second { get; } = new HskLevel("Second");
 
         /// <summary>
         /// Gets the Third level of HSK
         /// </summary>
-        public static HSKLevel Third { get; } = new HSKLevel("Third");
+        public static HskLevel Third { get; } = new HskLevel("Third");
 
         /// <summary>
         /// Gets the Fourth level of HSK
         /// </summary>
-        public static HSKLevel Fourth { get; } = new HSKLevel("Fourth");
+        public static HskLevel Fourth { get; } = new HskLevel("Fourth");
 
         /// <summary>
         /// Gets the Fifth level of HSK
         /// </summary>
-        public static HSKLevel Fifth { get; } = new HSKLevel("Fifth");
+        public static HskLevel Fifth { get; } = new HskLevel("Fifth");
 
         /// <summary>
         /// Gets the Sixth level of HSK
         /// </summary>
-        public static HSKLevel Sixth { get; } = new HSKLevel("Sixth");
+        public static HskLevel Sixth { get; } = new HskLevel("Sixth");
 
         /// <summary>
         /// Gets the name of the HSK level
@@ -61,7 +61,7 @@ namespace OpenHSK.Domain
         /// return the string representation of the HSK level
         /// </summary>
         /// <returns>the string representation of the HSK level</returns>
-        public override string ToString() => base.ToString();
+        public override string ToString() => Name;
         
         /// <summary>
         /// Needed to allow structure comparison for value object

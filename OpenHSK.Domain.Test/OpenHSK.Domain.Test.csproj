@@ -20,4 +20,11 @@
     <ProjectReference Include="..\OpenHSK.Domain\OpenHSK.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Features\Enrollment.cs">
+      <ExcludeFromSourceAnalysis>True</ExcludeFromSourceAnalysis>
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+  </ItemGroup>
+
 </Project>
