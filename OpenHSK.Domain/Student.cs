@@ -1,7 +1,7 @@
-﻿// <copyright file="Student.cs" company="MyCompany.com">
-//     MyCompany.com. All rights reserved.
+﻿// <copyright file="Student.cs" company="openhsk.com">
+//     Open Hsk
 // </copyright>
-// <author>Me</author>
+// <author>Christophe DEBOVE</author>
 
 namespace OpenHSK.Domain
 {
@@ -10,7 +10,7 @@ namespace OpenHSK.Domain
     using System.Linq;
 
     /// <summary>
-    /// Student Class
+    /// A student is a person that want to improve his Chinese level, in order to pass the Hsk Exam
     /// </summary>
     public class Student
     {
