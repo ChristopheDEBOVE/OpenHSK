@@ -12,7 +12,7 @@ namespace OpenHSK.Domain
     /// <summary>
     /// A student is a person that want to improve his Chinese level, in order to pass the Hsk Exam
     /// </summary>
-    public class Student
+    public class Student : User
     {
         /// <summary>
         /// keep tracked the HSK levels of the student

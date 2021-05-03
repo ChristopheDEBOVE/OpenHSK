@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenHSK.Domain.Tests", "OpenHSK.Domain.Test\OpenHSK.Domain.Tests.csproj", "{E7992851-C4C0-4E80-8F62-8D5916A49905}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenHSK.Domain", "OpenHSK.Domain\OpenHSK.Domain.csproj", "{CE62196F-1F09-46C8-922A-4DEE0EA2D446}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C2FE9D10-C9AA-4714-B0D3-07F11717A872}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
 		sonarscan.bat = sonarscan.bat
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenHSK.Domain", "src\OpenHSK.Domain\OpenHSK.Domain.csproj", "{975C1510-9026-49E3-B183-49CCD3BA6676}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenHSK.Domain.Tests", "tests\OpenHSK.Domain.Test\OpenHSK.Domain.Tests.csproj", "{B28A7761-2223-47BC-B0C3-BBA4761279C6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +19,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E7992851-C4C0-4E80-8F62-8D5916A49905}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E7992851-C4C0-4E80-8F62-8D5916A49905}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E7992851-C4C0-4E80-8F62-8D5916A49905}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E7992851-C4C0-4E80-8F62-8D5916A49905}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CE62196F-1F09-46C8-922A-4DEE0EA2D446}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CE62196F-1F09-46C8-922A-4DEE0EA2D446}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CE62196F-1F09-46C8-922A-4DEE0EA2D446}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CE62196F-1F09-46C8-922A-4DEE0EA2D446}.Release|Any CPU.Build.0 = Release|Any CPU
+		{975C1510-9026-49E3-B183-49CCD3BA6676}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{975C1510-9026-49E3-B183-49CCD3BA6676}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{975C1510-9026-49E3-B183-49CCD3BA6676}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{975C1510-9026-49E3-B183-49CCD3BA6676}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B28A7761-2223-47BC-B0C3-BBA4761279C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B28A7761-2223-47BC-B0C3-BBA4761279C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B28A7761-2223-47BC-B0C3-BBA4761279C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B28A7761-2223-47BC-B0C3-BBA4761279C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

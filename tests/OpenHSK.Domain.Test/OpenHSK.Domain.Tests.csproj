@@ -12,12 +12,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="TestResults\**" />
+    <EmbeddedResource Remove="TestResults\**" />
+    <None Remove="TestResults\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="OpenHSK.Domain.Tests.v3.ncrunchproject" />
+    <None Remove="StyleCop.Cache" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FluentAssertions" Version="5.10.3" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
     <PackageReference Include="xunit" Version="2.4.0" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
     <PackageReference Include="coverlet.collector" Version="1.2.0" />
   </ItemGroup>
+
 
   <ItemGroup>
     <Compile Update="Features\AddExampleTest.cs">
@@ -31,7 +43,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="TestResults\" />
+    <ProjectReference Include="..\..\src\OpenHSK.Domain\OpenHSK.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

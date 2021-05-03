@@ -9,6 +9,11 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <None Remove="OpenHSK.Domain.v3.ncrunchproject" />
+	  <None Remove="StyleCop.Cache" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<AdditionalFiles Include="..\.sonarlint\christophedebove_openhsk\CSharp\SonarLint.xml" Link="SonarLint.xml">
 			<ExcludeFromSourceAnalysis>True</ExcludeFromSourceAnalysis>
 			<ExcludeFromStyleCop>True</ExcludeFromStyleCop>
@@ -17,6 +22,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="CSharpFunctionalExtensions" Version="2.15.1" />
+		<PackageReference Include="NodaTime" Version="3.0.5" />
 	</ItemGroup>
 
 </Project>
