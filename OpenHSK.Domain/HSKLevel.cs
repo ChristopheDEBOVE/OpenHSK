@@ -15,6 +15,8 @@ namespace OpenHSK.Domain
     /// </summary>
     public sealed class HskLevel : ValueObject
     {
+        public static readonly IEnumerable<HskLevel> Levels = new[] { First, Second, Third, Fourth, Fifth, Sixth };
+
         /// <summary>
         /// Initializes a new instance of the <see cref="HskLevel" /> class.
         /// </summary>
