@@ -1,19 +1,22 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <CodeAnalysisRuleSet>..\.sonarlint\christophedebove_openhskcsharp.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<CodeAnalysisRuleSet>..\.sonarlint\christophedebove_openhskcsharp.ruleset</CodeAnalysisRuleSet>
+		<LangVersion>8.0</LangVersion>
+		<Nullable>enable</Nullable>
+		<WarningsAsErrors>nullable</WarningsAsErrors>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <AdditionalFiles Include="..\.sonarlint\christophedebove_openhsk\CSharp\SonarLint.xml" Link="SonarLint.xml">
-      <ExcludeFromSourceAnalysis>True</ExcludeFromSourceAnalysis>
-      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
-    </AdditionalFiles>
-  </ItemGroup>
+	<ItemGroup>
+		<AdditionalFiles Include="..\.sonarlint\christophedebove_openhsk\CSharp\SonarLint.xml" Link="SonarLint.xml">
+			<ExcludeFromSourceAnalysis>True</ExcludeFromSourceAnalysis>
+			<ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+		</AdditionalFiles>
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="CSharpFunctionalExtensions" Version="2.15.1" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="CSharpFunctionalExtensions" Version="2.15.1" />
+	</ItemGroup>
 
 </Project>

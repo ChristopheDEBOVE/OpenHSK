@@ -17,6 +17,10 @@
       <Key>sonar.cs.roslyn.ignoreIssues</Key>
       <Value>false</Value>
     </Setting>
+    <Setting>
+      <Key>sonar.cs.vstest.reportsPaths</Key>
+      <Value>**/report.unit.trx</Value>
+    </Setting>
   </Settings>
   <Rules>
     <Rule>
