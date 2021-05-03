@@ -1,4 +1,4 @@
-﻿
+
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudio,aspnetcore
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudio,aspnetcore
 
@@ -499,3 +499,4 @@ FodyWeavers.xsd
 /.sonarqube
 *.ncrunchproject
 /OpenHSK.v3.ncrunchsolution
+*SonarLint.xml
