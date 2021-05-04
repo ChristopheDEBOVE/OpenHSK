@@ -1,10 +1,11 @@
 ﻿using OpenHSK.Domain;
+using System.Threading.Tasks;
 
 namespace OpenHSK.Application.Examples.Commands
 {
     public interface IAddExampleRepository
     {
-        int Add(Example example);
+        Task<int> AddAsync(Example example);
     }
 
     public interface IExampleRepository : IAddExampleRepository

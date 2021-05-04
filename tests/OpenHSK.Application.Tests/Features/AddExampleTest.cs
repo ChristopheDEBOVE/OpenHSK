@@ -12,11 +12,11 @@
     {
         public List<Example> Examples = new List<Example>();
         public Example LastInsertedExample;
-        public int Add(Example example)
+        public Task<int> AddAsync(Example example)
         {
             LastInsertedExample = example;
             Examples.Add(example);
-            return 888;
+            return Task.FromResult( 888);
         }
     }
 
