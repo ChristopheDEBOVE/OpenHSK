@@ -30,18 +30,6 @@
     <PackageReference Include="coverlet.collector" Version="1.2.0" />
   </ItemGroup>
 
-
-  <ItemGroup>
-    <Compile Update="Features\AddExampleTest.cs">
-      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
-      <ExcludeFromSourceAnalysis>True</ExcludeFromSourceAnalysis>
-    </Compile>
-    <Compile Update="Features\EnrollmentTest.cs">
-      <ExcludeFromSourceAnalysis>True</ExcludeFromSourceAnalysis>
-      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
-    </Compile>
-  </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\..\src\OpenHSK.Domain\OpenHSK.Domain.csproj" />
   </ItemGroup>

@@ -13,6 +13,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenHSK.Domain", "src\OpenH
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenHSK.Domain.Tests", "tests\OpenHSK.Domain.Test\OpenHSK.Domain.Tests.csproj", "{B28A7761-2223-47BC-B0C3-BBA4761279C6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenHSK.Application", "src\OpenHSK.Application\OpenHSK.Application.csproj", "{617A7341-E67E-4AFB-9435-A9B1E8B87397}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenHSK.Application.Tests", "tests\OpenHSK.Application.Tests\OpenHSK.Application.Tests.csproj", "{9FCFE7F7-EC9E-48FC-816A-5674CE29B4DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenHSK.Tooling", "src\OpenHSK.Tooling\OpenHSK.Tooling.csproj", "{3A1F0F1F-ACE5-4D68-94B4-E110669DF0E7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +33,18 @@ Global
 		{B28A7761-2223-47BC-B0C3-BBA4761279C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B28A7761-2223-47BC-B0C3-BBA4761279C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B28A7761-2223-47BC-B0C3-BBA4761279C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{617A7341-E67E-4AFB-9435-A9B1E8B87397}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{617A7341-E67E-4AFB-9435-A9B1E8B87397}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{617A7341-E67E-4AFB-9435-A9B1E8B87397}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{617A7341-E67E-4AFB-9435-A9B1E8B87397}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FCFE7F7-EC9E-48FC-816A-5674CE29B4DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FCFE7F7-EC9E-48FC-816A-5674CE29B4DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FCFE7F7-EC9E-48FC-816A-5674CE29B4DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FCFE7F7-EC9E-48FC-816A-5674CE29B4DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A1F0F1F-ACE5-4D68-94B4-E110669DF0E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A1F0F1F-ACE5-4D68-94B4-E110669DF0E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A1F0F1F-ACE5-4D68-94B4-E110669DF0E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A1F0F1F-ACE5-4D68-94B4-E110669DF0E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

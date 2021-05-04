@@ -25,6 +25,14 @@ namespace OpenHSK.Domain
         {
             this.Name = name;
         }
+        public static Result<HskLevel> FromText(string text) 
+        {
+            switch (text) 
+            {
+                case "First": return First;
+                default: return Result.Failure<HskLevel>($"{text} is not a valid value, must be First, Second, Third, Fourth, Fift or Sixth");
+            }
+        }
 
         /// <summary>
         /// Gets the First level of HSK

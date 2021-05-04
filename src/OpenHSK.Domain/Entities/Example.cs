@@ -8,7 +8,7 @@ namespace OpenHSK.Domain
     /// <summary>
     /// In order to practice the exam good examples are mandatories
     /// </summary>
-    public class Example
+    public struct Example
     {
         public Example(NotEmptyText text, HskLevel level, Student student)
         {

@@ -2,9 +2,9 @@
 {
     using System;
 
-    interface ICurrentContextProvider
+    public interface ICurrentContextProvider
     {
-        DateTime GetCurrentDateTime();
-        User GetCurrentUser();
+        DateTime CurrentDateTime();
+        User CurrentUser();
     }
 }
