@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-using System;
+using OpenHSK.Domain.Commands.WriteModel;
 using Xunit;
 
 namespace OpenHSK.Domain
@@ -9,15 +9,14 @@ namespace OpenHSK.Domain
         [Fact]
         public void ANotEmptyTextMustNotBeEmpty()
         {
-            Action constructNewExampleWithEmptyText = () => new NotEmptyText("");           
-            constructNewExampleWithEmptyText.Should().Throw<ArgumentException>();
+            NotEmptyText.Create("").IsFailure.Should().BeTrue();
         }
 
         [Fact]
         public void TwoTextAreIdenticalIfTheyHaveTheSameValue()
         {
-            new NotEmptyText("foo").Should().Be(new NotEmptyText("foo"));
-            new NotEmptyText("foo").Should().NotBe(new NotEmptyText("bar"));
+            NotEmptyText.Create("foo").Should().Be(NotEmptyText.Create("foo"));
+            NotEmptyText.Create("foo").Should().NotBe(NotEmptyText.Create("bar"));
         }
     }
 }

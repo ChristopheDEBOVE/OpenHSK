@@ -13,4 +13,8 @@
     <ProjectReference Include="..\OpenHSK.Tooling\OpenHSK.Tooling.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features" />
+  </ItemGroup>
+
 </Project>

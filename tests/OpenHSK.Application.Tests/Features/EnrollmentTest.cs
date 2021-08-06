@@ -1,17 +1,17 @@
-using FluentAssertions;
 using System;
+using FluentAssertions;
+using OpenHSK.Domain.Commands.WriteModel;
 using Xunit;
 
-namespace OpenHSK.Domain
+namespace OpenHSK.Application.Tests.Features
 {
-
     public class EnrollmentTest
     {
-        readonly Student _sut = new Student();
+        private readonly Student _sut = new Student();
 
-        [Fact(DisplayName ="A student should be able to enroll for an hsk level")]
-        [Trait("Feature","Enrollment")]
-        public void AStudentShouldBeAbleToEnrollForAnHSKLevel()
+        [Fact(DisplayName = "A student should be able to enroll for an hsk level")]
+        [Trait("Feature", "Enrollment")]
+        public void AStudentShouldBeAbleToEnrollForAnHskLevel()
         {
             _sut.Enroll(HskLevel.First);
             _sut.Levels.Should().Contain(HskLevel.First);
@@ -19,7 +19,7 @@ namespace OpenHSK.Domain
 
         [Fact(DisplayName = "A student cannot enroll twice for the same hsk level")]
         [Trait("Feature", "Enrollment")]
-        public void AStudentCannotEnrollTwiceForTheSameHSKLevel()
+        public void AStudentCannotEnrollTwiceForTheSameHskLevel()
         {
             _sut.Enroll(HskLevel.First);
             Action secondEnrollment = () => _sut.Enroll(HskLevel.First);
@@ -27,10 +27,10 @@ namespace OpenHSK.Domain
             secondEnrollment.Should().Throw<InvalidOperationException>();
         }
 
-        [Fact(DisplayName = "A student can enroll for six differents levels in the same time")]
+        [Fact(DisplayName = "A student can enroll for six different levels in the same time")]
         [Trait("Feature", "Enrollment")]
-        public void AStudentCanEnrollForSixDifferentsLevelsInTheSameTime()
-        {            
+        public void AStudentCanEnrollForSixDifferentLevelsInTheSameTime()
+        {
             _sut.Enroll(HskLevel.First);
             _sut.Enroll(HskLevel.Second);
             _sut.Enroll(HskLevel.Third);
@@ -38,10 +38,12 @@ namespace OpenHSK.Domain
             _sut.Enroll(HskLevel.Fifth);
             _sut.Enroll(HskLevel.Sixth);
 
-            _sut.Levels.Should().Contain(new[]{
+            _sut.Levels.Should().Contain(new[]
+            {
                 HskLevel.First, HskLevel.Second,
                 HskLevel.Third, HskLevel.Fourth,
-                HskLevel.Fifth, HskLevel.Sixth});
+                HskLevel.Fifth, HskLevel.Sixth
+            });
         }
-    }  
+    }
 }

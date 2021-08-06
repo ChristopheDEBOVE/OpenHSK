@@ -3,12 +3,12 @@
 // </copyright>
 // <author>Christophe DEBOVE</author>
 
-namespace OpenHSK.Domain
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
+namespace OpenHSK.Domain.Commands.WriteModel
+{
     /// <summary>
     /// A student is a person that want to improve his Chinese level, in order to pass the Hsk Exam
     /// </summary>
@@ -17,7 +17,7 @@ namespace OpenHSK.Domain
         /// <summary>
         /// keep tracked the HSK levels of the student
         /// </summary>
-        private readonly List<HskLevel> levels = new List<HskLevel>();
+        private readonly List<HskLevel> _levels = new List<HskLevel>();
 
         /// <summary>
         /// Gets Levels
@@ -26,7 +26,7 @@ namespace OpenHSK.Domain
         {
             get
             {
-                return this.levels;
+                return this._levels;
             }
         }
 
@@ -36,12 +36,12 @@ namespace OpenHSK.Domain
         /// <param name="level">the HSK level</param>
         public void Enroll(HskLevel level)
         {
-            if (this.levels.Any(a => a == level))
+            if (this._levels.Any(a => a == level))
             {
                 throw new InvalidOperationException();
             }
             
-            this.levels.Add(level);
+            this._levels.Add(level);
         }
     }
 }

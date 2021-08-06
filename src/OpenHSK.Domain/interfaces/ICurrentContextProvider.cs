@@ -1,10 +1,9 @@
-﻿namespace OpenHSK.Domain.interfaces
-{
-    using System;
+﻿using OpenHSK.Domain.Commands.WriteModel;
 
+namespace OpenHSK.Domain.interfaces
+{
     public interface ICurrentContextProvider
     {
-        DateTime CurrentDateTime();
         User CurrentUser();
     }
 }

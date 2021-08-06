@@ -1,69 +1,74 @@
-﻿namespace OpenHSK.Domain
+﻿using System.Threading;
+using System.Threading.Tasks;
+using FluentAssertions;
+using OpenHSK.Application.Features.Examples;
+using OpenHSK.Application.Tests.Fixtures;
+using OpenHSK.Domain;
+using OpenHSK.Domain.Commands;
+using OpenHSK.Domain.Commands.WriteModel;
+using Xunit;
+
+namespace OpenHSK.Application.Tests.Features
 {
-    using FluentAssertions;
-    using OpenHSK.Application.Examples.Commands;
-    using System;
-    using System.Collections.Generic;
-    using System.Threading;
-    using System.Threading.Tasks;
-    using Xunit;
-
-    public class SpyExampleRepository : IExampleRepository
-    {
-        public List<Example> Examples = new List<Example>();
-        public Example LastInsertedExample;
-        public Task<int> AddAsync(Example example)
-        {
-            LastInsertedExample = example;
-            Examples.Add(example);
-            return Task.FromResult( 888);
-        }
-    }
-
     public class AddExampleTest
     {
-        private readonly DateTime mayTheFourthBeWithYou = new DateTime(2021,05,04);
-        private readonly ContextManagerForTest ContextManagerForTest;
-        private readonly CreateTodoItemCommandHandler _sut;
-        private readonly SpyExampleRepository _exampleRepositorySpy = new SpyExampleRepository();
+        private readonly ContextManagerForTest _contextManagerForTest;
+        private readonly AddNewExampleCommandHandler _sut;
+        private readonly SpyAddExampleInRepository _addExampleInRepositorySpyAdd = new SpyAddExampleInRepository();
 
         public AddExampleTest()
         {
             // Given
-            ContextManagerForTest = new ContextManagerForTest(mayTheFourthBeWithYou);                        
-            _sut = new CreateTodoItemCommandHandler(_exampleRepositorySpy, ContextManagerForTest);
+            _contextManagerForTest = new ContextManagerForTest();
+            _sut = new AddNewExampleCommandHandler(_addExampleInRepositorySpyAdd, _contextManagerForTest);
+        }
+
+        [Fact]
+        public async Task AnUserThatIsNotStudentCannotPostAnExample()
+        {
+            //given
+            _contextManagerForTest.SwapUser(null);
+            var command = new AddNewExampleCommand {Text = "foo", HskLevel = HskLevel.First.Name};
+
+            // When
+            var result = await _sut.Handle(command, CancellationToken.None);
+
+            // Then
+            result.IsFailure.Should().BeTrue();
+            _addExampleInRepositorySpyAdd.Examples.Count.Should().Be(0);
+            result.Error.Should().Be(Error.AuthorizationError("The current user is not a student"));
         }
 
         [Fact]
         public async Task AStudentCanPostAnExample()
         {
             //given
-            var student = ContextManagerForTest.CurrentUser() as Student;
-            Example expectedToBeInserted = new Example("foo", HskLevel.First, student);
-            var command = new AddNewExampleCommand() { Text = "foo", HskLevel = HskLevel.First.Name };
+            var student = _contextManagerForTest.CurrentUser() as Student;
+            var expectedToBeInserted = new Example("foo", HskLevel.First, student!);
+            var command = new AddNewExampleCommand {Text = "foo", HskLevel = HskLevel.First.Name};
 
             // When
-            var id = await _sut.Handle(command, CancellationToken.None);
+            var result = await _sut.Handle(command, CancellationToken.None);
 
             // Then
-            id.Should().Be(888);
-            _exampleRepositorySpy.Examples.Count.Should().Be(1);
-            _exampleRepositorySpy.LastInsertedExample.Should().BeEquivalentTo(expectedToBeInserted);
+            result.IsSuccess.Should().BeTrue();
+            _addExampleInRepositorySpyAdd.Examples.Count.Should().Be(1);
+            _addExampleInRepositorySpyAdd.LastInsertedExample.Should().BeEquivalentTo(expectedToBeInserted);
         }
 
         [Fact]
         public async Task WhenTheStudentSendAnInvalidTextItMustBeReject()
         {
             //given
-            var command = new AddNewExampleCommand() { Text = "", HskLevel = HskLevel.First.Name };
+            var command = new AddNewExampleCommand {Text = "", HskLevel = HskLevel.First.Name};
 
             // When
-            Func<Task> handleAction = async () => await _sut.Handle(command, CancellationToken.None);
+            var handleAction = await _sut.Handle(command, CancellationToken.None);
 
             // Then
-            await handleAction.Should().ThrowAsync<ValidationException>()
-                    .WithMessage("The text has an invalid value for the example");
-            _exampleRepositorySpy.Examples.Count.Should().Be(0);            
+            handleAction.Error.Should()
+                .Be(Error.ValidationError("The text has an invalid value for the example"));
+            _addExampleInRepositorySpyAdd.Examples.Count.Should().Be(0);
         }
 
         [Theory]
@@ -72,15 +77,17 @@
         public async Task WhenTheStudentSendAnInvalidHskLevelItMustBeReject(string hskLevel)
         {
             //given
-            var command = new AddNewExampleCommand() { Text = "Good Enought Example", HskLevel = hskLevel };
+            var command = new AddNewExampleCommand {Text = "Good enought Example", HskLevel = hskLevel};
 
             // When
-            Func<Task> handleAction = async () => await _sut.Handle(command, CancellationToken.None);
+            var handleAction = await _sut.Handle(command, CancellationToken.None);
 
             // Then
-            await handleAction.Should().ThrowAsync<ValidationException>()
-                    .WithMessage($"{hskLevel} is not a valid value, must be First, Second, Third, Fourth, Fift or Sixth");
-            _exampleRepositorySpy.Examples.Count.Should().Be(0);
+            handleAction.Error.Should()
+                .Be(Error.ValidationError(
+                    $"{hskLevel} is not a valid value, must be First, Second, Third, Fourth, Fift or Sixth"));
+
+            _addExampleInRepositorySpyAdd.Examples.Count.Should().Be(0);
         }
     }
 }
